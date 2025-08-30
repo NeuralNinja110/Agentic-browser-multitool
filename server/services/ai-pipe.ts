@@ -7,6 +7,10 @@ export class AiPipeService {
     this.apiKey = process.env.AI_PIPE_API_KEY || process.env.AIPIPE_API_KEY || "default_key";
     this.baseUrl = process.env.AI_PIPE_BASE_URL || 'https://aipipe.org/openrouter/v1';
     this.defaultModel = 'openai/gpt-4.1-nano'; // Preferred GPT-4.1 nano model
+    
+    // Debug logging
+    console.log('AI_PIPE_API_KEY env var:', process.env.AI_PIPE_API_KEY ? 'SET' : 'NOT SET');
+    console.log('Using API key:', this.apiKey === 'default_key' ? 'DEFAULT (NOT WORKING)' : 'CUSTOM KEY');
   }
 
   async chatCompletion(messages: any[], model?: string) {

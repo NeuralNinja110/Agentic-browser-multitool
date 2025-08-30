@@ -26,6 +26,28 @@ export const toolDefinitions = [
   {
     type: "function" as const,
     function: {
+      name: "browser_scrape",
+      description: "Open a URL in a browser-like environment and scrape content from the page. Optionally extract specific elements using CSS selectors.",
+      parameters: {
+        type: "object",
+        properties: {
+          url: {
+            type: "string",
+            description: "The URL of the page to open and scrape."
+          },
+          selector: {
+            type: "string",
+            description: "Optional CSS selector to extract specific content from the page.",
+            default: "body"
+          }
+        },
+        required: ["url"]
+      }
+    }
+  },
+  {
+    type: "function" as const,
+    function: {
       name: "ai_pipe",
       description: "Execute an AI workflow through the AI Pipe proxy API",
       parameters: {
